@@ -32,6 +32,3 @@ import Augmentor
 p = Augmentor.Pipeline("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/")
 p.rotate90(probability = 0.5)
 p.sample(2)
-
-#picture:
-
