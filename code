@@ -7,6 +7,31 @@ I am trying Augmentor package now....
 from PIL import Image   #if you want to try,set the path by yourself
 image_file = Image.open("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/Z1.jpg") # open colour image
 image_file = image_file.convert('1') # convert image to black and white
-image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')
+image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')qui
 
-2.crop the
+#there is a tough thing... After a full observation of our dataset, I found that there several kinds of gesture pictures even
+#within one kind. Take "A" as an example, we have photos with different light intensity, background, hand position. 
+#And because every picture can be denoted as a 200 times 200 matrix when it is a black-white picture. And it could be kind of
+#difficuilt for us to choose which part to use while controlling the input length should be the same.
+#because I think our model,like random forest, requires the input to have the same length.
+#Maybe we should change our preprocessing method here?
+#
+#My suggestion:
+#instead of adjusting all our pictures into one of a kind, why not just accept them all to be our original input? 
+#And furthermore, add more pictures to our training dataset. The Augmentor package in python provide us a good way to fulfill
+#this request. (Here' the link to the introduction of Augmentor  https://github.com/mdbloice/Augmentor#ground-truth-data)
+#Generally, this package can randomly generate every kind of picture possible base on your original picture. Picture can be 
+rotated in any degree, flipped, cropped with a fixed percentage area, skewed. I think maybe this 
+#(Maybe worth a try. I really don't know how to deal with the cropping ) 
+
+#by the way, this is how I used Augmentor to geneate to more pictures by rotating 90 degree to a "Z" photo
+#remember to download it first ($ pip install Augmentor)
+
+import Augmentor
+
+p = Augmentor.Pipeline("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/")
+p.rotate90(probability = 0.5)
+p.sample(2)
+
+#picture:
+
