@@ -6,10 +6,11 @@ from PIL import Image   #if you want to try,set the path by yourself
 
 image_file = Image.open("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/Z1.jpg") # open colour image
 image_file = image_file.convert('1') # convert image to black and white
-image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')qui
+image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')
 
 
-#there is a tough thing... After a full observation of our dataset, I found that there several kinds of gesture pictures even
+#there is a tough thing, I tried several ways but just didn't working nicely to our dataset. 
+#After a full observation of our dataset, I found that there several kinds of gesture pictures even
 #within one kind. Take "A" as an example, we have photos with different light intensity, background, hand position. 
 #And because every picture can be denoted as a 200 times 200 matrix when it is a black-white picture. And it could be kind of
 #difficuilt for us to choose which part to use while controlling the input length should be the same.
@@ -17,7 +18,7 @@ image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet
 #Maybe we should change our preprocessing method here?
 
 
-#My suggestion:
+#My suggestion(expand our dataset so that our model could be more robust to noise):
 #instead of adjusting all our pictures into one of a kind, why not just accept them all to be our original input? 
 #And furthermore, add more pictures to our training dataset. The Augmentor package in python provide us a good way to fulfill
 #this request. (Here' the link to the introduction of Augmentor  https://github.com/mdbloice/Augmentor#ground-truth-data)
