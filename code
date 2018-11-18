@@ -1,13 +1,13 @@
 //Part-1 Preprocess Image Data(this is a one data example)
 
-I am trying Augmentor package now.... 
-
 1.use PIL to convert it as a black-white picture
 
 from PIL import Image   #if you want to try,set the path by yourself
+
 image_file = Image.open("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/Z1.jpg") # open colour image
 image_file = image_file.convert('1') # convert image to black and white
 image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')qui
+
 
 #there is a tough thing... After a full observation of our dataset, I found that there several kinds of gesture pictures even
 #within one kind. Take "A" as an example, we have photos with different light intensity, background, hand position. 
@@ -15,7 +15,8 @@ image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet
 #difficuilt for us to choose which part to use while controlling the input length should be the same.
 #because I think our model,like random forest, requires the input to have the same length.
 #Maybe we should change our preprocessing method here?
-#
+
+
 #My suggestion:
 #instead of adjusting all our pictures into one of a kind, why not just accept them all to be our original input? 
 #And furthermore, add more pictures to our training dataset. The Augmentor package in python provide us a good way to fulfill
@@ -23,6 +24,7 @@ image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet
 #Generally, this package can randomly generate every kind of picture possible base on your original picture. Picture can be 
 rotated in any degree, flipped, cropped with a fixed percentage area, skewed. I think maybe this 
 #(Maybe worth a try. I really don't know how to deal with the cropping ) 
+
 
 #by the way, this is how I used Augmentor to geneate to more pictures by rotating 90 degree to a "Z" photo
 #remember to download it first ($ pip install Augmentor)
@@ -32,3 +34,5 @@ import Augmentor
 p = Augmentor.Pipeline("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/")
 p.rotate90(probability = 0.5)
 p.sample(2)
+
+#you can check the result in the output file which I have uploaded.
