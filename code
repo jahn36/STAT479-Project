@@ -1,3 +1,12 @@
-//Part-1 Preprocess Image Data
+//Part-1 Preprocess Image Data(this is a one data example)
 
 I am trying Augmentor package now.... 
+
+1.use PIL to convert it as a black-white picture
+
+from PIL import Image   #if you want to try,set the path by yourself
+image_file = Image.open("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/Z1.jpg") # open colour image
+image_file = image_file.convert('1') # convert image to black and white
+image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet_train/1/result.png')
+
+2.crop the
