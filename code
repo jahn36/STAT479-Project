@@ -23,8 +23,7 @@ image_file.save('/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_alphabet
 #And furthermore, add more pictures to our training dataset. The Augmentor package in python provide us a good way to fulfill
 #this request. (Here' the link to the introduction of Augmentor  https://github.com/mdbloice/Augmentor#ground-truth-data)
 #Generally, this package can randomly generate every kind of picture possible base on your original picture. Picture can be 
-rotated in any degree, flipped, cropped with a fixed percentage area, skewed. I think maybe this 
-#(Maybe worth a try. I really don't know how to deal with the cropping ) 
+rotated in any degree, flipped, cropped with a fixed percentage area, skewed.
 
 
 #by the way, this is how I used Augmentor to geneate to more pictures by rotating 90 degree to a "Z" photo
@@ -36,4 +35,9 @@ p = Augmentor.Pipeline("/Users/qintaoying/Desktop/STAT-479/GP/asl-alphabet/asl_a
 p.rotate90(probability = 0.5)
 p.sample(2)
 
+
 #you can check the result in the output file which I have uploaded.
+#And use this way, the code is pretty simple. But we need to discuss how to choose our parameters to generate the extra pictures
+#and make sure it can enhance the model robustness. The obvious problem is the calculation amount could be huge after that. And
+#I don't know if any of us has a computer which is capable of this work
+#But since professor has mentioned that our data amount is way less than 100000. Maybe it's worth to have a try.
